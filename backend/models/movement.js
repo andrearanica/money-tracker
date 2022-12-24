@@ -1,7 +1,7 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const movementSchema = mongoose.Schema({
-    username: {
+    email: {
         type: String,
         require: true
     },
