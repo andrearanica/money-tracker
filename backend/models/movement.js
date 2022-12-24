@@ -8,6 +8,13 @@ const movementSchema = mongoose.Schema({
     value: {
         type: Number,
         require: true
+    },
+    category: {
+        type: String,
+        require: true
+    },
+    description: {
+        type: String
     }
 }, { timestamps: true })
 
