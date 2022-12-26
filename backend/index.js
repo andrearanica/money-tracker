@@ -7,6 +7,7 @@ import cors from 'cors'
 const app = express()
 const PORT = process.env.port || 5000
 const CONNECTION_URL = 'mongodb://localhost:27017/movements'
+const JWT_SECRET = 'ciao'
 
 app.use(express.json())
 app.use(cors())
