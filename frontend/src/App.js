@@ -7,6 +7,7 @@ import Home from './components/Home'
 // https://colorhunt.co/palette/1b243051557e816797d6d5a8
 
 function App() {
+
   const [token, setToken] = useState('')
   const [email, setEmail] = useState('')
 
@@ -27,6 +28,7 @@ function App() {
       }
     </div>
   )
+  
 }
 
 export default App
