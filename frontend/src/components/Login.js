@@ -26,7 +26,7 @@ export default function Login (props) {
             <form onSubmit={ login }>
                 <input  value={ email }    className="form-control bg-dark text-light my-3" type="email"    onChange={ event => setEmail(event.target.value) }    placeholder="Email" />
                 <input  value={ password } className="form-control bg-dark text-light my-3" type="password" onChange={ event => setPassword(event.target.value) } placeholder="Password" />
-                <input type="submit" />
+                <input type="submit" className="form-control bg-dark" style={{ color: 'white' }} />
             </form>
         </div>
     )

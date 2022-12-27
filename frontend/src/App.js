@@ -12,8 +12,10 @@ function App() {
 
   useEffect(() => {
     if (token) {
-      setToken(window.localStorage.getItem('token'))
+      window.localStorage.setItem('token', token)
+      window.localStorage.setItem('email', email)
     }
+    setEmail(window.localStorage.getItem('email'))
     document.body.style.backgroundColor = "#1B2430"
   })
 
@@ -21,7 +23,7 @@ function App() {
     <div className="App">
       <Navbar />
       {
-        token ? <Home email={ email } /> : <Login token={ token } setToken={ setToken } setEmail={ setEmail }/>
+        window.localStorage.getItem('token') ? <Home email={ email } /> : <Login token={ token } setToken={ setToken } setEmail={ setEmail }/>
       }
     </div>
   )

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import AddMovement from './AddMovement'
 
 export default function Home (props) {
     
@@ -37,6 +38,7 @@ export default function Home (props) {
                     )
                 })
             }
+            <AddMovement email={ props.email }/>
         </div>
     )
 
