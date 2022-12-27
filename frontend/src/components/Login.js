@@ -13,7 +13,10 @@ export default function Login (props) {
     async function login (event) {
         event.preventDefault()
         axios.post('http://localhost:5000/auth/login', { email: email, password: password })
-        .then(res => props.setToken(res))
+        .then(res => {
+            props.setToken(res.data)
+            props.setEmail(email)
+        })
         .catch(error => console.log(error))
     }
 
