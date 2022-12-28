@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
 import { Movement } from '../models/movement.js'
 
@@ -36,5 +37,19 @@ export const getMovementsByEmail = async (req, res) => {
         res.status(200).json(result)
     } catch (error) {
         res.status(404).json({ message: error.message })
+    }
+}
+
+export const deleteMovement = async (req, res) => {
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ message: 'Invalid ID' })
+    } else {
+        try {
+            await Movement.findByIdAndDelete(id)
+            res.status(201).json({ message: 'Moviment deleted' })
+        } catch (error) {
+            res.status(404).json({ error: error.message })
+        }
     }
 }
