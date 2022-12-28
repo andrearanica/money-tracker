@@ -4,16 +4,18 @@ import { useState } from 'react'
 export default function AddMovement (props) {
 
     const [value, setValue] = useState(0)
-    const [category, setCategory] = useState('')
+    const [category] = useState('')
     const [description, setDescription] = useState('')
 
     function addMovement () {
-        axios.post('http://192.168.1.95:5000/movements', {
-            email: props.email,
-            value: value,
-            category: category,
-            description: description
-        })
+        if (value !== 0 && category !== '' && description !== '') {
+            axios.post('http://192.168.1.95:5000/movements', {
+                email: props.email,
+                value: value,
+                category: category,
+                description: description
+            })
+        }
     }
 
     return (
@@ -22,7 +24,16 @@ export default function AddMovement (props) {
             <form onSubmit={ addMovement }>
                 <input placeholder="Email" value={ props.email } className="form-control my-1 bg-dark" readOnly style={{ color: 'white' }} />
                 <input placeholder="Valore"      onChange={(e) => setValue(e.target.value) }       className="form-control bg-dark my-1" style={{ color: 'white' }} type="number" />
-                <input placeholder="Categoria"   onChange={(e) => setCategory(e.target.value) }    className="form-control bg-dark my-1" style={{ color: 'white' }} />
+                <select className="form-control bg-dark" style={{ color: 'white' }} placeholder="Categoria">  
+                    <option value="" disabled selected hidden>Categoria</option>    
+                    {
+                        props.categories.map(c => {
+                            return (
+                                <option value={ c }>{ c }</option>
+                            )
+                        })
+                    }  
+                </select>
                 <input placeholder="Descrizione" onChange={(e) => setDescription(e.target.value) } className="form-control bg-dark my-1" style={{ color: 'white' }} />
                 <input type="submit" className="form-control my-2 bg-dark" style={{ color: 'white' }} />
             </form>

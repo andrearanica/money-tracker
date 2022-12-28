@@ -40,3 +40,10 @@
 .movement {
   background-color: black;
 }
+
+.navbar {
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
