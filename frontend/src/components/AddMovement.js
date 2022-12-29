@@ -15,6 +15,8 @@ export default function AddMovement (props) {
                 category: category,
                 description: description
             })
+        } else {
+            alert('Inserisci tutti i campi per salvare il movimento')
         }
     }
 
@@ -22,8 +24,8 @@ export default function AddMovement (props) {
         <div className="text-center">
             <h4>Inserisci un nuovo movimento </h4>
             <form onSubmit={ addMovement }>
-                <input placeholder="Email" value={ props.email } className="form-control my-1 bg-dark" readOnly style={{ color: 'white' }} />
-                <input placeholder="Valore"      onChange={(e) => setValue(e.target.value) }       className="form-control bg-dark my-1" style={{ color: 'white' }} type="number" />
+                <input value={ props.email } placeholder="Email" className="form-control my-1 bg-dark" readOnly style={{ color: 'white' }} />
+                <input placeholder="Valore" onChange={(e) => setValue(e.target.value) } className="form-control bg-dark my-1" style={{ color: 'white' }} type="number" />
                 <select className="form-control bg-dark" style={{ color: 'white' }} placeholder="Categoria">  
                     <option value="" disabled selected hidden>Categoria</option>    
                     {
