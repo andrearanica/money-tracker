@@ -1,6 +1,6 @@
 # 💸 Money Tracker
 With this application you can control your incomes and your outgoings with a simple UI <br/>
-Every movements has a value, a category and a description
+Every movement has a value, a category and a description
 
 ### ⚙️ Technologies
 This project is made with the MERN stack (Mongo, Express, React, Node) <br/>
