@@ -8,7 +8,7 @@ export default function AddMovement (props) {
     const [description, setDescription] = useState('')
 
     function addMovement () {
-        if (value !== 0 && category !== '' && description !== '') {
+        if (value !== 0 && description !== '') {
             axios.post('http://192.168.1.95:5000/movements', {
                 email: props.email,
                 value: value,
